@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace MovieSearchifyWebAPI.Services
 {
@@ -14,7 +15,9 @@ namespace MovieSearchifyWebAPI.Services
     {
         public IEnumerable<Movie> GetAllMovies()
         {
-            var json = File.ReadAllText(@"C:\Users\datta\Downloads\movies.json");
+            var path = WebConfigurationManager.AppSettings["MoviesPath"];
+            path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, path);
+            var json = File.ReadAllText(path);
             var moviesList = new List<Movie>();
             try
             {
