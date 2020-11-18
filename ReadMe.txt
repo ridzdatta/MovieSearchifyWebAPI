@@ -1,0 +1,1 @@
+Please install Visual Studio 2019 and open the .sln file and run the application for backend. Please make a note of the port number its running on and make the necessary changes in the Vue front end project in constant.js.
